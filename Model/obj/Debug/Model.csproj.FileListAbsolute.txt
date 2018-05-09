@@ -1,0 +1,7 @@
+C:\Users\ppara\Desktop\SchoolSystem\SchoolSystem\Model\bin\Debug\Model.dll.config
+C:\Users\ppara\Desktop\SchoolSystem\SchoolSystem\Model\bin\Debug\Model.dll
+C:\Users\ppara\Desktop\SchoolSystem\SchoolSystem\Model\bin\Debug\Model.pdb
+C:\Users\ppara\Desktop\SchoolSystem\SchoolSystem\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\ppara\Desktop\SchoolSystem\SchoolSystem\Model\obj\Debug\Model.csproj.CoreCompileInputs.cache
+C:\Users\ppara\Desktop\SchoolSystem\SchoolSystem\Model\obj\Debug\Model.dll
+C:\Users\ppara\Desktop\SchoolSystem\SchoolSystem\Model\obj\Debug\Model.pdb

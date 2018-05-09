@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="schoolSystem" Class="ModelDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-KFUCESE\SQLEXPRESS;Initial Catalog=schoolSystem;Integrated Security=True" SettingsObjectName="Model.Properties.Settings" SettingsPropertyName="schoolSystemConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Aluno" Member="Aluno">
+    <Type Name="Aluno">
+      <Column Name="idAluno" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Endereco" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Cep" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="Telefone" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="Celular" Type="System.String" DbType="VarChar(17)" CanBeNull="true" />
+      <Column Name="dataNascimento" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="dataCadastro" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dataAtualizacao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Aluno_Notas" Member="Notas" ThisKey="idAluno" OtherKey="idAluno" Type="Notas" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Turma" Member="Turma">
+    <Type Name="Turma">
+      <Column Name="idTurma" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idMateria" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="dataCadastro" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Turma_Notas" Member="Notas" ThisKey="idTurma" OtherKey="idTurma" Type="Notas" />
+      <Association Name="Materia_Turma" Member="Materia" ThisKey="idMateria" OtherKey="idMateria" Type="Materia" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Materia" Member="Materia">
+    <Type Name="Materia">
+      <Column Name="idMateria" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Nome" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="Descricao" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
+      <Column Name="dataCadastro" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="dataAtualizacao" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Association Name="Materia_Turma" Member="Turma" ThisKey="idMateria" OtherKey="idMateria" Type="Turma" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Notas" Member="Notas">
+    <Type Name="Notas">
+      <Column Name="idNotas" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="idTurma" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="idAluno" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="a1" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="a2" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="a3" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="media" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Association Name="Aluno_Notas" Member="Aluno" ThisKey="idAluno" OtherKey="idAluno" Type="Aluno" IsForeignKey="true" />
+      <Association Name="Turma_Notas" Member="Turma" ThisKey="idTurma" OtherKey="idTurma" Type="Turma" IsForeignKey="true" />
+    </Type>
+  </Table>
+</Database>
