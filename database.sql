@@ -1,0 +1,70 @@
+----    CRIA BANCO DE DADOS
+--  IF(EXISTS(SELECT * FROM sys.databases WHERE UPPER(name) = UPPER('schoolSystem')))
+--   BEGIN
+--    	DROP DATABASE schoolSystem
+     --   CREATE DATABASE schoolSystem
+    	--USE schoolSystem
+--   END
+--GO
+
+-- CRIA TABELA MATERIA
+CREATE TABLE Materia(
+   idMateria INT NOT NULL IDENTITY(1,1),
+   Nome      VARCHAR(255),
+   Descricao VARCHAR(255),
+   dataCadastro DATETIME DEFAULT GETDATE(),
+   dataAtualizacao DATETIME
+);
+--CRIA CHAVE PRIMAIRA IDMATEIRA
+ALTER TABLE Materia ADD CONSTRAINT PK_MATERIA
+ 			PRIMARY KEY (idMateria) 
+GO
+--CRIA TABELA ALUNO 
+CREATE TABLE Aluno(
+  idAluno INT NOT NULL IDENTITY(1,1),
+  Nome   VARCHAR(255),
+  Endereco VARCHAR(255),
+  Cep VARCHAR(17),
+  Telefone VARCHAR(17),
+  Celular VARCHAR(17),
+  dataNascimento DATE,
+  dataCadastro DATETIME DEFAULT GETDATE(),
+  dataAtualizacao DATETIME
+ );
+--CRIA CHAVE PRIMARIA IDALUNO 
+ ALTER TABLE Aluno ADD CONSTRAINT PK_ALUNO
+ 			 PRIMARY KEY (idAluno)  
+GO
+--CRIA TABELA CURSO
+CREATE TABLE Turma(
+  idTurma INT NOT NULL IDENTITY(1,1),
+  idMateria INT NOT NULL,
+  Nome VARCHAR(255),
+  dataCadastro DATETIME DEFAULT GETDATE()
+);
+--CRIA CHAVE PRIMARIA IDCURSO
+ALTER TABLE Turma ADD CONSTRAINT PK_TURMA
+			PRIMARY KEY (idTurma)
+GO
+--CRIA CHAVE ESTRANGEIRA IDALUNO
+ALTER TABLE Turma ADD CONSTRAINT FK_ALUNO
+		    FOREIGN KEY (idMateria) REFERENCES Materia (idMateria)
+
+go
+Create table Notas(
+idNotas INT NOT NULL IDENTITY(1,1),
+idTurma INT not null,
+idAluno int not null,
+a1 float(3),
+a2 float(3),
+a3 float(3),
+media float(3)
+);
+ALTER TABLE Notas ADD CONSTRAINT PK_Notas
+			PRIMARY KEY (idNotas)
+go
+ALTER TABLE Notas ADD CONSTRAINT FK_TURMA
+			FOREIGN KEY (idTurma) REFERENCES Turma (idTurma)
+GO
+ALTER TABLE Notas ADD CONSTRAINT FK_ALUNO_NOTA
+		    FOREIGN KEY (idAluno) REFERENCES Aluno (idAluno)
