@@ -1,7 +1,8 @@
 # SchoolSystem
 Sistema de cadastro de uma escola
 
-##Banco de dados
+Banco de dados
+------
 
 Foi utilizado Microsoft Sql Server 2012.
 
@@ -11,7 +12,8 @@ Esse foi o Diagrama:
 
 Tem uma query para criação do banco, o nome é database.sql
 
-##Sistema do Aluno
+Sistema do Aluno
+------
 
 Primeiro cadastrar Matérias, depois os Alunos e por final as matérias.
 
